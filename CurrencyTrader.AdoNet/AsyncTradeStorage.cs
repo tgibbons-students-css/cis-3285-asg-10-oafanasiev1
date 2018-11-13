@@ -23,7 +23,8 @@ namespace CurrencyTrader.AdoNet
         public void Persist(IEnumerable<TradeRecord> trades)
         {
             Logger.LogInfo("Connecting to Database");
-            SynchTradeStorage.Persist(trades);
+           // SynchTradeStorage.Persist(trades);
+            Task.Run(() => SynchTradeStorage.Persist(trades));
         }
 
 
